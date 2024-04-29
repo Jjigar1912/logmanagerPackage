@@ -129,9 +129,10 @@ class logger {
                 console.log('Provide instance of error');
             }
         }catch(error){
-            if(error instanceof AxiosError){
-                console.log(`${chalk.blueBright('Error From Logger : ')}${chalk.red(JSON.stringify(error.response.data))}`);
-            }
+            console.log('error',error);
+            // if(error instanceof AxiosError){
+            //     console.log(`${chalk.blueBright('Error From Logger : ')}${chalk.red(JSON.stringify(error.response.data))}`);
+            // }
         }
     }
 
@@ -156,8 +157,6 @@ class logger {
                 this.log.details = this.message ;
 
                 const response = await this.apiCall('http://localhost:5000/api/log/create');
-
-                console.log('response',response);
 
                 this.printConsole(response);
 
