@@ -1,6 +1,6 @@
 {
   "name": "jigarkhalas-logger",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "This is custom logger package ",
   "main": "logger.js",
   "scripts": {
