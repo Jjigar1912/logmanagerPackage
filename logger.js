@@ -157,11 +157,12 @@ class logger {
 
                 const response = await this.apiCall('http://localhost:5000/api/log/create');
 
+                console.log('response',response);
+
                 this.printConsole(response);
 
             }
         }catch(error){
-            console.log('error',error)
             if(error instanceof AxiosError){
                 console.log(`${chalk.blueBright('Error From Logger : ')}${chalk.red(error.response.data)}`);
             }
