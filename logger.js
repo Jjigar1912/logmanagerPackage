@@ -129,10 +129,9 @@ class logger {
                 console.log('Provide instance of error');
             }
         }catch(error){
-            console.log('error',error);
-            // if(error instanceof AxiosError){
-            //     console.log(`${chalk.blueBright('Error From Logger : ')}${chalk.red(JSON.stringify(error.response.data))}`);
-            // }
+            if(error instanceof AxiosError){
+                console.log(`${chalk.blueBright('Error From Logger : ')}${chalk.red(JSON.stringify(error.response.data))}`);
+            }
         }
     }
 
