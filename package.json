@@ -1,0 +1,26 @@
+{
+  "name": "logger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "pm2 start --name logger --watch logger.js ",
+    "nodemon": "nodemon logger.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "chalk": "^5.3.0",
+    "country-list": "^2.3.0",
+    "express": "^4.19.2",
+    "geoip-country": "^4.2.89",
+    "geoip-lite": "^1.4.10",
+    "http-status": "^1.7.4",
+    "pm2": "^5.3.1",
+    "ua-parser-js": "^1.0.37"
+  },
+  "type": "module"
+}
