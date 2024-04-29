@@ -100,33 +100,39 @@ class logger {
 
     async error(error){
 
-        if(this.apiKey == null || this.code == null){
-            console.log(chalk.red('init() method is not called.'));
-            console.log(chalk.red('Your log is not inserted.'));
-            console.log(chalk.red('call init() method in middleware.'))
-            console.log(chalk.red('Please follow the instruction'))
-        }
-        else if(error == null) {
-            this.invalidDetails();
-        }
-        else if(error instanceof Error){
+        try{
             
-            this.message.data = error.stack;
+            if(this.apiKey == null || this.code == null){
+                console.log(chalk.red('init() method is not called.'));
+                console.log(chalk.red('Your log is not inserted.'));
+                console.log(chalk.red('call init() method in middleware.'))
+                console.log(chalk.red('Please follow the instruction'))
+            }
+            else if(error == null) {
+                this.invalidDetails();
+            }
+            else if(error instanceof Error){
+                
+                this.message.data = error.stack;
 
-            this.log.category = this.ERROR ;
-            
-            this.log.details = this.message ;
+                this.log.category = this.ERROR ;
+                
+                this.log.details = this.message ;
 
-            this.log.errorName = error.name ;
+                this.log.errorName = error.name ;
 
-            const response = await this.apiCall('http://localhost:5000/api/log/create');
+                const response = await this.apiCall('http://localhost:5000/api/log/create');
 
-            this.printErrorConsole(response);
+                this.printErrorConsole(response);
 
-        } else {
-            console.log('Provide instance of error');
+            } else {
+                console.log('Provide instance of error');
+            }
+        }catch(error){
+            if(error instanceof AxiosError){
+                console.log(`${chalk.blueBright('Error From Logger : ')}${chalk.red(JSON.stringify(error.response.data))}`);
+            }
         }
-
     }
 
     async warning(data=null){
