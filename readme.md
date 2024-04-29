@@ -5,8 +5,14 @@
 ## Installation
 
 ```
-npm i logger
+npm i jigarkhalas-logger
 
+```
+
+## Importing Package
+
+```
+import logger from 'jigarkhalas-logger';
 
 const app = express();
 
@@ -15,12 +21,13 @@ app.use(logger.init({
     code : '123'
 }))
 
+
 ```
 
 ## Info Method
 
 ```
-import logger from 'logger';
+import logger from 'jigarkhalas-logger';
 
 logger.info('Hello')
 
@@ -29,7 +36,7 @@ logger.info('Hello')
 ## Warning Method
 
 ```
-import logger from 'logger';
+import logger from 'jigarkhalas-logger';
 
 logger.warning('Warning')
 
@@ -38,7 +45,7 @@ logger.warning('Warning')
 ## Error Method
 
 ```
-import logger from 'logger';
+import logger from 'jigarkhalas-logger';
 
 logger.error(new Error('Provide instance of error'))
 
